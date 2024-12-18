@@ -1,0 +1,390 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.main-header {
+  background: white;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-container {
+  flex: 0 1 300px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.left-panel, .right-panel {
+  min-width: 350px;
+}
+
+.center-panel {
+  min-width: 700px;
+}
+
+.form-container {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-container h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.form-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-container button {
+  background: #1976d2;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-container button:hover {
+  background: #1565c0;
+}
+
+.calendar-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-header button {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  background: #e0e0e0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.8rem;
+}
+
+.daysname {
+  text-align: center;
+  font-weight: bold;
+  padding: 1.2rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.dates {
+  text-align: center;
+  padding: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.dates:hover {
+  background: #f0f0f0;
+}
+
+.task-added {
+  background: #e3f2fd;
+  font-weight: bold;
+}
+
+.disabled {
+  color: #ccc;
+  background: #f5f5f5;
+  pointer-events: none;
+}
+
+.summary-section {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.task-summary h3 {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.summary-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: #1976d2;
+  color: white;
+}
+
+#taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.task-item {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: #f8f9fa;
+  position: relative;
+}
+
+.task-item .delete-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task-item .delete-btn:hover {
+  background: #c82333;
+}
+.task-item h4 {
+  margin-bottom: 0.5rem;
+  color: #1976d2;
+}
+
+.task-item p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.25rem 0;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.task-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #1976d2;
+  color: white;
+}
+
+.action-btn.delete {
+  background: #dc3545;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#timer-display {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+#task-timer button {
+  background: #1976d2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+#task-timer button:hover {
+  background: #1565c0;
+}
+
+/* Buttons */
+button, .btn {
+  background: linear-gradient(135deg, #1976d2, #1565c0); /* Gradient for depth */
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:hover, .btn:hover {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px);
+}
+
+button:active, .btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+button.delete-btn, .btn.delete {
+  background: linear-gradient(135deg, #e53935, #c62828);
+}
+
+button.delete-btn:hover, .btn.delete:hover {
+  background: linear-gradient(135deg, #c62828, #b71c1c);
+}
+
+button.secondary-btn, .btn.secondary {
+  background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.secondary-btn:hover, .btn.secondary:hover {
+  background: linear-gradient(135deg, #bdbdbd, #9e9e9e);
+  color: black;
+}
+
+button:disabled, .btn:disabled {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+@media (max-width: 1200px) {
+  .main-content {
+      grid-template-columns: 1fr;
+  }
+  
+  .left-panel,
+  .center-panel,
+  .right-panel {
+      min-width: 100%;
+  }
+}

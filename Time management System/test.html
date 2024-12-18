@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Management System</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1>Time Management System</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search tasks...">
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="form-container">
+                    <form id="taskForm">
+                        <h3>Add/Edit Task</h3>
+                        <input type="text" id="taskTitle" placeholder="Task Title" required>
+                        <textarea id="taskDescription" placeholder="Task Description" required></textarea>
+                        <select id="taskPriority" required>
+                            <option value="low">Low Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                        <input type="date" id="taskDay" required>
+                        <input type="time" id="taskStartTime" required>
+                          <input type="time" id="taskEstimatedTime" required step="60">
+                        <button type="submit">Save Task</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="center-panel">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prevMonth">&lt;</button>
+                        <h2 id="monthName"></h2>
+                        <button id="nextMonth">&gt;</button>
+                    </div>
+                    <div id="calendar" class="calendar-grid"></div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="summary-section">
+                    <div class="task-summary">
+                        <h3>Task Summary</h3>
+                        <div class="summary-tabs">
+                            <button class="tab-btn active" data-tab="daily">Daily</button>
+                            <button class="tab-btn" data-tab="weekly">Weekly</button>
+                        </div>
+                        <div id="taskList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <button id="closePopup" class="close-button">&times;</button>
+                <h3 id="popup-title"></h3>
+                <p id="popup-details"></p>
+                <p id="popup-startTime"></p>
+                <p id="popup-estimatedTime"></p>
+                <div class="task-actions">
+                    <button id="completeTask" class="action-btn">Mark as Complete</button>
+                    <buttton id="editTask" class="action-btn">Edit</buttton>
+                    <button id="deleteTask" class="action-btn delete">Delete Task</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="notification" class="notification hidden">
+            <p id="notificationMessage"></p>
+        </div>
+    </div>
+    <script src="test.js"></script>
+</body>
+</html>
